@@ -46,7 +46,7 @@ group :development, :test do
   gem "rubocop"
   gem "bundler-audit"
   gem "ruby_audit"
-  gem "pg"
+  # gem "pg"
 end
 
 group :development do
