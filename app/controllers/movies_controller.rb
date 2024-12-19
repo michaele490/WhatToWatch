@@ -15,7 +15,7 @@ class MoviesController < ApplicationController
   def create
     @movie = current_user.movies.build(movie_params)
     if @movie.save
-      redirect_to @movie, notice: "Movie was successfully created."
+      redirect_to @movie, notice: "Movie was successfully added."
     else
       render :new, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class MoviesController < ApplicationController
 
   def destroy
     @movie.destroy
-    redirect_to movies_url, notice: "Movie was successfully deleted."
+    redirect_to movies_url, notice: "Movie was successfully removed."
   end
 
   private

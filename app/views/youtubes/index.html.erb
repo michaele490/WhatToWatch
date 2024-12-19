@@ -1,0 +1,12 @@
+<h1>YouTube Videos</h1>
+<%= link_to 'New YouTube Video', new_youtube_path %>
+<ul>
+  <% @youtubes.each do |youtube| %>
+    <li>
+      <%= link_to youtube.title, youtube %> (<%= youtube.genre %>)
+      <%= link_to 'Edit', edit_youtube_path(youtube) %> |
+      <%= link_to 'Delete', youtube, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
+

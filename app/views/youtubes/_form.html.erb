@@ -1,0 +1,28 @@
+ <%= form_with(model: youtube, local: true) do |form| %>
+  <% if youtube.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(youtube.errors.count, 'error') %> prohibited this youtube video from being saved:</h2>
+      <ul>
+        <% youtube.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :channel %>
+    <%= form.text_field :channel %>
+  </div>
+  <div>
+    <%= form.label :minutes %>
+    <%= form.text_field :minutes %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
