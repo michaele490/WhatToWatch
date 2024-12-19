@@ -30,3 +30,7 @@ test:
 production:
   <<: *default
   # database: path/to/persistent/storage/production.sqlite3
+
+vm:
+  <<: *default
+  database: "/home/ubuntu/WhatToWatch/db/production.sqlite3"

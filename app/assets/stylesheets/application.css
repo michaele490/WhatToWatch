@@ -26,3 +26,20 @@ nav{background-color: #ECF184}
     font-weight: bold;
     border: 3px solid #DF1AA0;
 }
+
+.content-type{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: #FFECFF;
+    font-weight: bold;
+    border: none;
+    height: 80px;
+    border-radius: 12px;
+    width: 150px;
+}
+
+.container-fluid{
+    margin-top: 25px;
+}

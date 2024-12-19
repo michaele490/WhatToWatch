@@ -1,12 +1,13 @@
-<h1>THIS IS THE HOME PAGE</h1>
-<!--<%= link_to "Sign Up", new_user_registration_path %><br/>
-<%= link_to "Sign In", new_user_session_path %><br/>
-<%= link_to 'Edit Account', edit_user_registration_path %>-->
-
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-3">Add Movies</div>
-        <div class="col-md-3">Add Series</div>
-        <div class="col-md-3">Add Youtube Video</div>
+        <div class="col-md-3">
+            <%= button_to 'Movies', "movies#index", method: :get, class: 'content-type'%>
+        </div>
+        <div class="col-md-3">
+            <%= button_to 'Tv Shows', "tv_shows#index", method: :get, class: 'content-type'%>
+        </div>
+        <div class="col-md-3">
+            <%= button_to 'YouTube Videos', "youtubes#index", method: :get, class: 'content-type'%>
+        </div>
     </div>
 </div>
