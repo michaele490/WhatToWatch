@@ -1,0 +1,14 @@
+<h1>TV Shows</h1>
+<%= link_to 'New TV Show', new_tv_show_path %>
+<ul>
+  <% @tv_shows.each do |tv_show| %>
+    <li>
+      <%= link_to tv_show.title, tv_show_path(tv_show) %> 
+      (<%= tv_show.genre %>, <%= tv_show.minutesPerEpisode %> min/episode, <%= tv_show.seasons %> seasons, <%= tv_show.seasonsCompleted %> completed)
+      |
+      <%= link_to 'Edit', edit_tv_show_path(tv_show) %> 
+      |
+      <%= link_to 'Delete', tv_show, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>

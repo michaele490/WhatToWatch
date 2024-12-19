@@ -1,5 +1,6 @@
 class YoutubesController < ApplicationController
   before_action :set_youtube, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   def index
     @youtubes = current_user.youtubes

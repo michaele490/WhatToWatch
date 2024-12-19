@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   def index
     @movies = current_user.movies

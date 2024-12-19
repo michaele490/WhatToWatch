@@ -1,0 +1,15 @@
+<h1 style="text-align:center"><%= @tv_show.title %></h1>
+<p>
+  <strong>Genre:</strong> <%= @tv_show.genre %>
+</p>
+<p>
+  <strong>Minutes Per Episode:</strong> <%= @tv_show.minutesPerEpisode %>
+</p>
+<p>
+  <strong>Seasons:</strong> <%= @tv_show.seasons %>
+</p>
+<p>
+  <strong>Seasons Completed:</strong> <%= @tv_show.seasonsCompleted %>
+</p>
+<%= link_to 'Edit', edit_tv_show_path(@tv_show) %> |
+<%= link_to 'Back', tv_shows_path %>
