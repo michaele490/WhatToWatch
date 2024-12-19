@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_19_003811) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_19_015609) do
+  create_table "movies", force: :cascade do |t|
+    t.string "title"
+    t.string "genre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_movies_on_user_id"
+  end
+
+  create_table "tv_shows", force: :cascade do |t|
+    t.integer "minutesPerEpisode"
+    t.integer "seasons"
+    t.integer "seasonsCompleted"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tv_shows_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -24,4 +43,18 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_19_003811) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
+
+  create_table "youtubes", force: :cascade do |t|
+    t.integer "minutes"
+    t.string "channel"
+    t.string "title"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_youtubes_on_user_id"
+  end
+
+  add_foreign_key "movies", "users"
+  add_foreign_key "tv_shows", "users"
+  add_foreign_key "youtubes", "users"
 end
