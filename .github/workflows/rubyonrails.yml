@@ -25,17 +25,16 @@ jobs:
           ruby-version: 3.2.4
           bundler-cache: true
 
-      - name: Check installations
-        run: |
-          which ruby
-          which rails
-          ruby -v
-          rails -v
-
       - name: Install dependencies
         run: |
           gem install bundler
           bundle install
+          gem install rails
+
+      - name: Check installations
+        run: |
+          ruby -v
+          bundle exec rails -v
 
       - name: Make bin/rails executable
         run: chmod +x bin/rails
@@ -47,7 +46,7 @@ jobs:
 
       - name: Run tests
         run: bundle exec rails test
-        
+
   lint:
     runs-on: ubuntu-latest
     steps:
