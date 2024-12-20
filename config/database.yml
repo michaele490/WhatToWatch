@@ -27,8 +27,11 @@ test:
 #
 # Similarly, if you deploy your application as a Docker container, you must
 # ensure the database is located in a persisted volume.
+
+# Make sure to run the EC2 instance in production environment
 production:
   <<: *default
+  database: "/home/ubuntu/WhatToWatch/db/production.sqlite3"
   # database: path/to/persistent/storage/production.sqlite3
 
 vm:

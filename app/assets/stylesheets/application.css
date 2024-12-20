@@ -16,7 +16,10 @@
 
 body{background-color: #FEC8FF;}
 
-nav{background-color: #ECF184}
+nav{
+    background-color: #ECF184;
+    height: 100px;
+}
 
 #logo{
     background-color: #17FFEC;
@@ -24,7 +27,24 @@ nav{background-color: #ECF184}
     text-decoration: none;
     color: #DF1AA0;
     font-weight: bold;
+    font-size: 28px;
     border: 3px solid #DF1AA0;
+    margin-left: 15px;
+    height: 75px;
+    width: 185px;
+    border-radius: 22px;
+}
+
+.nav-link{
+    background-color: #FF5CE9;
+    width: 185px;
+    height: 60px;
+    font-size: 22px;
+    text-align: center;
+    color: #00FFCC;
+    font-weight: bold;
+    margin-right: 15px;
+    margin-left: 15px;
 }
 
 .content-type{
