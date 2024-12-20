@@ -47,33 +47,33 @@ jobs:
       - name: Run tests
         run: bundle exec rails test
 
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Install Ruby and gems
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.2.4
-          bundler-cache: true
-      - name: Install dependencies
+    lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+        - name: Install Ruby and gems
+          uses: ruby/setup-ruby@v1
+          with:
+            ruby-version: 3.2.4
+            bundler-cache: true
+        - name: Install dependencies
+          run: |
+            gem install bundler
+            bundle install
+            gem install rails
+        - name: Generate binstubs
+          run: bundle binstubs bundler-audit brakeman rubocop
+      # This step makes binstubs executable to fix error with exit code 126
+      - name: Make binstubs executable
         run: |
-          gem install bundler
-          bundle install
-          gem install rails
-      - name: Generate binstubs
-        run: bundle binstubs bundler-audit brakeman rubocop
-    # This step makes binstubs executable to fix error with exit code 126
-    - name: Make binstubs executable
-      run: |
-        chmod +x bin/brakeman
-        chmod +x bin/rubocop
-        chmod +x bin/bundler-audit
-      # Add or replace any other lints here
-      - name: Security audit dependencies
-        run: bin/bundler-audit --update
-      - name: Security audit application code
-        run: bin/brakeman -q -w2
-      - name: Lint Ruby files
-        run: bin/rubocop --parallel
+          chmod +x bin/brakeman
+          chmod +x bin/rubocop
+          chmod +x bin/bundler-audit
+        # Add or replace any other lints here
+        - name: Security audit dependencies
+          run: bin/bundler-audit --update
+        - name: Security audit application code
+          run: bin/brakeman -q -w2
+        - name: Lint Ruby files
+          run: bin/rubocop --parallel
