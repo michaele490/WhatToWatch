@@ -30,6 +30,9 @@ jobs:
       # Ensure the bin/rails file is executable - Fix for error with exit code 126
       - name: Make bin/rails executable
         run: chmod +x bin/rails
+      # Set up database schema
+      - name: Set up database schema
+        run: bin/rails db:schema:load
       # Add or replace test runners here
       - name: Run tests
         run: bundle exec rails test
