@@ -18,24 +18,36 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      # Add or replace dependency steps here
+
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.2.4
           bundler-cache: true
-      - name: Check Ruby version
-        run: ruby -v
-      - name: Install Bundler
-        run: gem install bundler
-      # Ensures bin/rails file is executable
+
+      - name: Check installations
+        run: |
+          which ruby
+          which rails
+          ruby -v
+          rails -v
+
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install
+
       - name: Make bin/rails executable
         run: chmod +x bin/rails
-      - name: Set up database schema
-        run: bin/rails db:schema:load
+
+      - name: Set up database
+        run: |
+          bundle exec rails db:create
+          bundle exec rails db:schema:load
+
       - name: Run tests
         run: bundle exec rails test
-
+        
   lint:
     runs-on: ubuntu-latest
     steps:
