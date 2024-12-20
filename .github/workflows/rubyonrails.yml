@@ -24,6 +24,10 @@ jobs:
         with:
           ruby-version: 3.2.4
           bundler-cache: true
+      - name: Check Ruby version
+        run: ruby -v
+      - name: Install Bundler
+        run: gem install bundler
       # Ensures bin/rails file is executable
       - name: Make bin/rails executable
         run: chmod +x bin/rails
