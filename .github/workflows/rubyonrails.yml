@@ -24,15 +24,12 @@ jobs:
         with:
           ruby-version: 3.2.4
           bundler-cache: true
-      # Add or replace database setup steps here
-      - name: Set up database schema
-        run: bin/rails db:schema:load
-      # Ensure the bin/rails file is executable - Fix for error with exit code 126
-      - name: Make bin/rails executable
-        run: chmod +x bin/rails
+      # Ensure the bundle exec file is executable - Fix for error with exit code 126
+      - name: Make bundle exec rails executable
+        run: chmod +x bundle exec rails
       # Set up database schema
       - name: Set up database schema
-        run: bin/rails db:schema:load
+        run: bundle exec rails db:schema:load
       # Add or replace test runners here
       - name: Run tests
         run: bundle exec rails test
