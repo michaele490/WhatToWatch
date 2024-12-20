@@ -7,6 +7,7 @@ class YoutubesController < ApplicationController
   end
 
   def show
+    @youtube = Youtube.find(params[:id])
   end
 
   def new
@@ -45,6 +46,6 @@ class YoutubesController < ApplicationController
   end
 
   def youtube_params
-    params.require(:youtube).permit(:title, :genre)
+    params.require(:youtube).permit(:title, :genre, :channel, :duration, :user_id)
   end
 end

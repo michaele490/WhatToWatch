@@ -7,6 +7,7 @@ class MoviesController < ApplicationController
   end
 
   def show
+    @movie = Movie.find(params[:id])
   end
 
   def new
@@ -34,6 +35,7 @@ class MoviesController < ApplicationController
   end
 
   def destroy
+    @movie = Movie.find(params[:id])
     @movie.destroy
     redirect_to movies_url, notice: "Movie was successfully removed."
   end
@@ -45,6 +47,6 @@ class MoviesController < ApplicationController
   end
 
   def movie_params
-    params.require(:movie).permit(:title, :genre)
+    params.require(:movie).permit(:title, :genre, :user_id)
   end
 end

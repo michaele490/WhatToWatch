@@ -16,6 +16,12 @@
 
 body{background-color: #FEC8FF;}
 
+h1{
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 35px;
+}
+
 nav{
     background-color: #ECF184;
     height: 100px;
@@ -62,4 +68,18 @@ nav{
 
 .container-fluid{
     margin-top: 25px;
+}
+
+.form-container{
+    margin: 0 auto;
+    text-align: center;
+}
+
+label{
+    width: 120px;
+    display: inline-block;
+}
+
+.form-group{
+    margin-bottom: 20px;
 }
