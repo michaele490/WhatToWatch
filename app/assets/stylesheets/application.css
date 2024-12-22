@@ -76,10 +76,28 @@ nav{
 }
 
 label{
-    width: 120px;
+    width: 170px;
     display: inline-block;
+    text-align: left;
 }
 
 .form-group{
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.add-content{
+    background-color: #FF5CE9;
+    border: none;
+    height: 68px;
+    width: 120px;
+    border-radius: 14px;
+    font-weight: bold;
+}
+
+.return-btn{
+    background-color: rgb(229, 100, 57);
+    border: 1px solid black;
+    font-weight: bold;
+    height: 50px;
+    width: 90px;
 }

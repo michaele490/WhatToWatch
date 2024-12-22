@@ -10,27 +10,29 @@
     </div>
   <% end %>
 
+  <div class="form-container">
+    <div class="form-group">
+      <%= form.label "Title:" %>
+      <%= form.text_field :title %>
+    </div>
+    <div class="form-group">
+      <%= form.label "Genre:" %>
+      <%= form.text_field :genre %>
+    </div>
+    <div class="form-group">
+      <%= form.label "Mins per episode:" %>
+      <%= form.number_field :minutesPerEpisode %>
+    </div>
+    <div class="form-group">
+      <%= form.label "Seasons:" %>
+      <%= form.number_field :seasons %>
+    </div>
+    <div class="form-group">
+      <%= form.label "Seasons completed:" %>
+      <%= form.number_field :seasonsCompleted %>
+    </div>
+    <div>
+      <%= form.submit "Add Show", class: "add-content" %>
+    </div>
   <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-  <div>
-    <%= form.label :genre %>
-    <%= form.text_field :genre %>
-  </div>
-  <div>
-    <%= form.label :minutesPerEpisode %>
-    <%= form.number_field :minutesPerEpisode %>
-  </div>
-  <div>
-    <%= form.label :seasons %>
-    <%= form.number_field :seasons %>
-  </div>
-  <div>
-    <%= form.label :seasonsCompleted %>
-    <%= form.number_field :seasonsCompleted %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>
