@@ -1,3 +1,17 @@
-<h1>Add New Movie</h1>
-<%= render 'form', movie: @movie %>
-<%= link_to 'Back to movies', movies_path %>
+<!--<h1>Add New Movie</h1>-->
+<%#= render 'form', movie: @movie %>
+<%#= link_to 'Back to movies', movies_path %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 d-flex justify-content-between align-items-center">
+      <%= button_to 'Back', movies_path, method: :get, class: 'return-btn' %>
+      <div class="flex-grow-1 text-center"> <h1>Add New Movie</h1> </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <%= render 'form', movie: @movie %>
+    </div>
+  </div>
+</div>

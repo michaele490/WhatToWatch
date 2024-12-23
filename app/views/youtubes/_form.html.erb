@@ -10,19 +10,22 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="form-container">
+    <div class="form-group">
+      <%= form.label "Title:" %>
+      <%= form.text_field :title %>
+    </div>
+    <div class="form-group">
+      <%= form.label "Channel:" %>
+      <%= form.text_field :channel %>
+    </div>
+    <div class="form-group">
+      <%= form.label "Minutes:" %>
+      <%= form.text_field :minutes %>
+    </div>
+    <div>
+      <%= form.submit "Add YouTube Video", class: "add-content" %>
+    </div>
   </div>
-  <div>
-    <%= form.label :channel %>
-    <%= form.text_field :channel %>
-  </div>
-  <div>
-    <%= form.label :minutes %>
-    <%= form.text_field :minutes %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
+
 <% end %>
