@@ -20,6 +20,8 @@ gem "jbuilder"
 # gem "redis", ">= 4.0.1"
 # User authentication solution
 gem "devise"
+# Needed for deletion of records
+gem "turbolinks", "~> 5"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
