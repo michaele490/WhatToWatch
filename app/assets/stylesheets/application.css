@@ -92,6 +92,8 @@ label{
     width: 120px;
     border-radius: 14px;
     font-weight: bold;
+    white-space: normal;
+    word-wrap: break-word
 }
 
 .return-btn{
