@@ -36,19 +36,23 @@
             <%= link_to 'TV Shows', tv_shows_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <%= link_to 'YouTube Videos', youtubes_path, class: 'nav-link' %>
+            <%= link_to 'YouTube', youtubes_path, class: 'nav-link' %>
           </li>
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Log In", new_user_session_path, class: 'nav-link' %>
+            </li>
+          <% end %>
         </ul>
       </div>
 
       <div class="navbar-nav ms-auto">
-        <% if user_signed_in? %>
-          <span class="nav-item"><%= current_user.username %></span>
-          <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: 'nav-link' %>
-        <% else %>
-          <%= button_to "Log In", new_user_session_path, method: :get, class: 'nav-link' %>
-          <%= button_to "Register", new_user_registration_path, method: :get, class: 'nav-link' %>
-        <% end %>
+        <b><%= current_user.username %></b>
+        <%= button_to "Sign Up", new_user_registration_path, method: :get, class: 'nav-link reg-btn' %>
       </div>
     </nav>
     <%= yield %>

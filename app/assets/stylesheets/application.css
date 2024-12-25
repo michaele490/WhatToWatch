@@ -42,10 +42,11 @@ nav{
     border-radius: 22px;
 }
 
-.nav-link{
+.reg-btn{
     background-color: #FF5CE9;
-    width: 185px;
-    height: 60px;
+    width: 155px;
+    height: 50px;
+    border-radius: 15px;
     font-size: 22px;
     text-align: center;
     color: #00FFCC;

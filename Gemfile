@@ -22,6 +22,10 @@ gem "jbuilder"
 gem "devise"
 # Needed for deletion of records
 gem "turbolinks", "~> 5"
+# For testing
+gem "rspec-rails"
+# For environment variables
+gem "dotenv-rails"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
