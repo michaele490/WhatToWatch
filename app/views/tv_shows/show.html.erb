@@ -1,15 +1,31 @@
-<h1 style="text-align:center"><%= @tv_show.title %></h1>
-<p>
-  <strong>Genre:</strong> <%= @tv_show.genre %>
-</p>
-<p>
-  <strong>Minutes Per Episode:</strong> <%= @tv_show.minutesPerEpisode %>
-</p>
-<p>
-  <strong>Seasons:</strong> <%= @tv_show.seasons %>
-</p>
-<p>
-  <strong>Seasons Completed:</strong> <%= @tv_show.seasonsCompleted %>
-</p>
-<%= link_to 'Edit', edit_tv_show_path(@tv_show) %> |
-<%= link_to 'Back', tv_shows_path %>
+<div class="container mt-5">
+
+    <div class="row">
+        <div class="col-12 d-flex justify-content-between align-items-center">
+            <div class="flex-grow-1 text-center">
+                <h1>TV Shows</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 25px">
+        <div class="card mx-auto p-4" style="max-width: 400px; background-color: #FFECFF;">
+            <div>
+                <h2 class="mb-3" style="font-weight: bold; text-align: center;"><%= @tv_show.title %></h2>
+                <p class="mb-4">Genre: <%= @tv_show.genre %></p>
+                <p class="mb-4"> Minutes Per Episode: <%= @tv_show.minutesPerEpisode %></p>
+                <p class="mb-4"> Seasons: <%= @tv_show.seasons %></p>
+                <p class="mb-4"> Seasons Completed: <%= @tv_show.seasonsCompleted %></p>
+            </div>
+            <div class="d-flex justify-content-between">
+                <%= button_to 'Remove TV Show', tv_show_path(@tv_show), method: :delete, class: "btn btn-danger w-45" %>
+                <%= button_to 'Edit TV Show', edit_tv_show_path(@tv_show), method: :get, class: "btn btn-primary w-45" %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <%= button_to 'Back', tv_shows_path, method: :get, class: 'return-btn' %>
+    </div>
+</div>

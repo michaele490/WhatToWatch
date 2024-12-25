@@ -1,14 +1,51 @@
 <h1>YouTube Videos</h1>
-<%= link_to 'New YouTube Video', new_youtube_path %>
-<ul>
-  <% @youtubes.each do |youtube| %>
-    <li>
-      <%= link_to youtube.title, youtube_path(youtube) %> 
-      (<%= youtube.channel %> - <%= youtube.minutes %> minutes)
-      |
-      <%= link_to 'Edit', edit_youtube_path(youtube) %> 
-      |
-      <%= link_to 'Delete', youtube, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </li>
-  <% end %>
-</ul>
+
+<% if @youtubes.any? %>
+  <!-- Display YouTube videos table -->
+  <div class="container">
+
+    <div class="row justify-content-center">
+      <div class="col-md-12 text-center">
+        <%= link_to 'Add YouTube Videos', new_youtube_path, class: 'btn btn-primary', style: 'margin-bottom: 20px' %>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <!-- Empty div -->
+      <div class="col-md-3"></div>
+
+      <!-- Div column with table -->
+      <div class="col-md-6">
+        <table class="table table-striped text-center">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Channel</th>
+              <th scope="col">Minutes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @youtubes.each do |youtube| %>
+              <tr>
+                <td><%= link_to youtube.title, youtube_path(youtube), class: "table-link" %></td>
+                <td><%= youtube.channel %></td>
+                <td><%= youtube.minutes %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Empty div -->
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+<% else %>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12 text-center">
+        <%= link_to 'Add YouTube Video', new_youtube_path, class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -31,8 +31,8 @@
       <%= form.label "Seasons completed:" %>
       <%= form.number_field :seasonsCompleted %>
     </div>
-    <div>
-      <%= form.submit "Add Show", class: "add-content" %>
+    <div style="margin-bottom: 25px;">
+      <%= form.submit tv_show.new_record? ? "Add Show" : "Apply Changes", class: "add-content" %>
     </div>
   <div>
 <% end %>

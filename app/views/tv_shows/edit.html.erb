@@ -1,3 +1,10 @@
 <h1>Edit TV Show</h1>
 <%= render 'form', tv_show: @tv_show %>
-<%= link_to 'Back', tv_shows_path %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="text-align: left;">
+            <%= button_to 'Back', tv_shows_path, method: :get, class: 'return-btn' %>
+        </div>
+    </div>
+</div>

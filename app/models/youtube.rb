@@ -3,5 +3,5 @@ class Youtube < ApplicationRecord
 
   validates :title, presence: true
   validates :channel, presence: true
-  validates :duration, presence: true
+  validates :minutes, presence: true
 end

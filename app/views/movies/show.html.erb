@@ -1,4 +1,35 @@
-<h1 style="text-align:center"><%= @movie.title %></h1>
-<p>Genre: <%= @movie.genre %></p>
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back to movies', movies_path %>
+<!--<h1 style="text-align:center"><%# = @movie.title %></h1>
+<p>Genre: <%#= @movie.genre %></p>
+<%#= link_to 'Edit', edit_movie_path(@movie) %> |
+<%#= link_to 'Back to movies', movies_path %>-->
+
+<div class="container mt-5">
+
+    <div class="row">
+        <div class="col-12 d-flex justify-content-between align-items-center">
+            <div class="flex-grow-1 text-center">
+                <h1>Movies</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 25px;">
+        <div class="card mx-auto p-4" style="max-width: 400px; background-color: #FFECFF;">
+            <div>
+                <h2 class="mb-3" style="font-weight: bold; text-align: center;"><%= @movie.title %></h2>
+                <p class="mb-4">Genre: <%= @movie.genre %></p>
+            </div>
+            <div class="d-flex justify-content-between">
+                <%= button_to 'Remove Movie', movie_path(@movie), method: :delete, class: "btn btn-danger w-45" %>
+                <%= button_to 'Edit Movie', edit_movie_path(@movie), method: :get, class: "btn btn-primary w-45" %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <%= button_to 'Back', movies_path, method: :get, class: 'return-btn' %>
+        </div>
+    </div>
+</div>
+

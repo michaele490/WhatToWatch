@@ -19,8 +19,8 @@
       <%= form.label "Genre:" %>
       <%= form.text_field :genre %>
     </div>
-    <div>
-      <%= form.submit "Add Movie", class: "add-content" %>
+    <div style="margin-bottom: 25px;">
+      <%= form.submit movie.new_record? ? "Add Movie" : "Apply Changes", class: "add-content" %>
     </div>
   </div>
 <% end %>

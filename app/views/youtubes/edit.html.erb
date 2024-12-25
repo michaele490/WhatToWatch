@@ -1,3 +1,10 @@
-<h1 style="text-align:center">Edit YouTube Video</h1>
+<h1>Edit YouTube Video</h1>
 <%= render 'form', youtube: @youtube %>
-<%= link_to 'Back to youtube videos', youtubes_path %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <%= button_to 'Back', youtubes_path, method: :get, class: 'return-btn' %>
+        </div>
+    </div>
+</div>

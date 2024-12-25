@@ -15,7 +15,7 @@ class YoutubesController < ApplicationController
   end
 
   def create
-    @youtube = current_user.youtube.build(youtube_params)
+    @youtube = current_user.youtubes.build(youtube_params)
     if @youtube.save
       redirect_to @youtube, notice: "Youtube video was successfully added"
     else
@@ -46,6 +46,6 @@ class YoutubesController < ApplicationController
   end
 
   def youtube_params
-    params.require(:youtube).permit(:title, :genre, :channel, :duration, :user_id)
+    params.require(:youtube).permit(:title, :genre, :channel, :minutes, :user_id)
   end
 end

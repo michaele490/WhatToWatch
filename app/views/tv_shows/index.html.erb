@@ -1,14 +1,55 @@
 <h1>TV Shows</h1>
-<%= link_to 'New TV Show', new_tv_show_path %>
-<ul>
-  <% @tv_shows.each do |tv_show| %>
-    <li>
-      <%= link_to tv_show.title, tv_show_path(tv_show) %> 
-      (<%= tv_show.genre %>, <%= tv_show.minutesPerEpisode %> min/episode, <%= tv_show.seasons %> seasons, <%= tv_show.seasonsCompleted %> completed)
-      |
-      <%= link_to 'Edit', edit_tv_show_path(tv_show) %> 
-      |
-      <%= link_to 'Delete', tv_show_path(tv_show), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
-    </li>
-  <% end %>
-</ul>
+
+<% if @tv_shows.any? %>
+  <!-- Display tv shows table -->
+  <div class="container">
+
+    <div class="row justify-content-center">
+      <div class="col-md-12 text-center">
+        <%= link_to 'Add TV Shows', new_tv_show_path, class: 'btn btn-primary', style: 'margin-bottom: 20px' %>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <!-- Empty div -->
+      <div class="col-md-3"></div>
+
+      <!-- Div column with table -->
+      <div class="col-md-6">
+        <table class="table table-striped text-center">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Genre</th>
+              <th scope="col">Seasons</th>
+              <th scope="col">Completed Seasons</th>
+              <th scope="col">Min per Episode</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @tv_shows.each do |tv_show| %>
+              <tr>
+                <td><%= link_to tv_show.title, tv_show_path(tv_show), class: "table-link" %></td>
+                <td><%= tv_show.genre %></td>
+                <td><%= tv_show.seasons %></td>
+                <td><%= tv_show.seasonsCompleted %></td>
+                <td><%= tv_show.minutesPerEpisode %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Empty div -->
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+<% else %>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12 text-center">
+        <%= link_to 'Add TV Shows', new_tv_show_path, class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+<% end %>

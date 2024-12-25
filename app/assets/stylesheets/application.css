@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require custom
  */
 
 body{background-color: #FEC8FF;}
@@ -103,3 +104,10 @@ label{
     height: 50px;
     width: 90px;
 }
+
+.table-link{
+    color: black;
+    text-decoration: none;
+}
+
+.remove-rec{background-color: red;}
