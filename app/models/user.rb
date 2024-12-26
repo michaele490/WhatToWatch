@@ -26,4 +26,12 @@ class User < ApplicationRecord
       "#{minutes} mins"
     end
   end
+
+  def average_minutes
+    if youtubes.count > 0
+      total_minutes / youtubes.count
+    else
+      0
+    end
+  end
 end

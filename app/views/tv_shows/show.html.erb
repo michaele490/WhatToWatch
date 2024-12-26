@@ -16,6 +16,7 @@
                 <p class="mb-4"> Minutes Per Episode: <%= @tv_show.minutesPerEpisode %></p>
                 <p class="mb-4"> Seasons: <%= @tv_show.seasons %></p>
                 <p class="mb-4"> Seasons Completed: <%= @tv_show.seasonsCompleted %></p>
+                <p class="mb-4"> Seasons remaining: <%= @tv_show.seasons_left %></p>
             </div>
             <div class="d-flex justify-content-between">
                 <%= button_to 'Remove TV Show', tv_show_path(@tv_show), method: :delete, class: "btn btn-danger w-45" %>

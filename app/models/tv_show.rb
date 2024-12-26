@@ -13,7 +13,7 @@ class TvShow < ApplicationRecord
   end
 
   def seasons_left
-    seasonsLeft =seasons - seasonsCompleted
+    seasons - seasonsCompleted
   end
 
   def no_negative_values

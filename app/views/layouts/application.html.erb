@@ -51,7 +51,9 @@
       </div>
 
       <div class="navbar-nav ms-auto">
-        <b><%= current_user.username %></b>
+        <% if user_signed_in? %>
+          <b><%= current_user.username %></b>
+        <% end %>
         <%= button_to "Sign Up", new_user_registration_path, method: :get, class: 'nav-link reg-btn' %>
       </div>
     </nav>

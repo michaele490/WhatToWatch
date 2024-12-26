@@ -34,4 +34,16 @@ RSpec.describe User, type: :model do
       expect(new_user2.total_time).to eq('3 hrs')
     end
   end
+
+  describe '#average_minutes' do
+    it 'returns the average watch time in minutes for all Youtube records belonging to the user' do
+      expect(user.average_minutes).to eq(65)
+    end
+
+    it 'returns 0 if the user has no Youtube records' do
+      new_user3 = User.create(email: 'new_user3@example.com', username: 'new_user3', password: 'password')
+
+      expect(new_user3.average_minutes).to eq(0)
+    end
+  end
 end
