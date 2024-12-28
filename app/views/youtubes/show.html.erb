@@ -12,6 +12,11 @@
                 <h2 class="mb-3" style="font-weight: bold; text-align: center;"><%= @youtube.title %></h2>
                 <p class="mb-4">Channel: <%= @youtube.channel %></p>
                 <p class="mb-4"> Minutes: <%= @youtube.minutes %></p>
+                <% if @youtube.link.present? %>
+                    <p style="text-align: center">
+                        <%= link_to 'Watch', @youtube.link, target: '_blank' %>
+                    </p>
+                <% end %>
             </div>
             <div class="d-flex justify-content-between">
                 <%= button_to 'Remove Video', youtube_path(@youtube), method: :delete, class: "btn btn-danger w-45" %>

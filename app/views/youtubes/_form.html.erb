@@ -23,6 +23,10 @@
       <%= form.label "Minutes:" %>
       <%= form.text_field :minutes %>
     </div>
+    <div class="form-group">
+      <%= form.label "Link:" %>
+      <%= form.text_field :link %>
+    </div>
     <div style="margin-bottom: 25px;">
       <%= form.submit youtube.new_record? ? "Add YouTube Video" : "Apply Changes", class: "add-content" %>
     </div>

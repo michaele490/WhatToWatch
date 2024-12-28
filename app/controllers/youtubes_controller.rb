@@ -46,6 +46,6 @@ class YoutubesController < ApplicationController
   end
 
   def youtube_params
-    params.require(:youtube).permit(:title, :genre, :channel, :minutes, :user_id)
+    params.require(:youtube).permit(:title, :genre, :channel, :minutes, :link, :user_id)
   end
 end
