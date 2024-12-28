@@ -92,3 +92,52 @@ jobs:
           bundle exec rails db:schema:load
       - name: Run RSpec tests
         run: bundle exec rspec
+  
+  deploy:
+    runs-on: ubuntu-latest
+    # needs: [ test, lint, rspec-test ]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up environment variables
+        env:
+          # These are GitHub secrets
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+        run: |
+          # Save the SSH private key and set permissions
+          echo "$SSH_PRIVATE_KEY" > final-attempt.pem
+
+          # Set read and write permissions for owner
+          chmod 600 final-attempt.pem
+
+      - name: Deploy to EC2
+        run: |
+          #Define EC2 instance details
+          INSTANCE_ID="i-0f0354c44ab34cae0"
+
+          # Elastic IP for instance
+          PUBLIC_IP=44.222.60.79
+
+          #SSH into EC2 instance
+          #StrictHostKeyChecking=no - disables identity verification
+
+          ssh -o StrictHostKeyChecking=no -i final-attempt.pem ubuntu@$PUBLIC_IP << 'EOF'
+            # Exit if error occurs
+            set -e
+            # Navigate to project directory
+            cd WhatToWatch
+            # Pull latest changes from GitHub
+            git pull origin master
+            # Install dependencies
+            bundle install
+            # Run migrations in the PRODUCTION environment
+            rails db:migrate
+            # Start the Rails server, workflow runs until server is terminated
+            sudo /home/ubuntu/.rbenv/shims/rails server --binding 0.0.0.0 --port 80
+
+      - name: Clean up
+        run: |
+          # Remove the SSH private key after its use
+          rm final-attempt.pem
