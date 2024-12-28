@@ -126,8 +126,11 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i final-attempt.pem ubuntu@$PUBLIC_IP << 'EOF'
             # Exit if error occurs
             set -e
+            export PATH="$HOME/.rbenv/bin:$PATH"
+            eval "$(rbenv init -)"
             # Navigate to project directory
             cd WhatToWatch
+            echo "PATH is: $PATH"
             # Pull latest changes from GitHub
             git pull origin master
             # Install dependencies
