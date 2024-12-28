@@ -26,6 +26,8 @@ gem "turbolinks", "~> 5"
 gem "rspec-rails"
 # For environment variables
 gem "dotenv-rails"
+# Linter for embeded ruby views
+gem "erb_lint", require: false
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
