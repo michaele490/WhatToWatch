@@ -38,7 +38,7 @@ nav{
     border: 3px solid #DF1AA0;
     margin-left: 15px;
     height: 75px;
-    width: 185px;
+    max-width: 185px;
     border-radius: 22px;
     margin-right: 8px;
 }
@@ -75,7 +75,13 @@ nav{
     .username {
       display: none;
     }
-  }
+}
+
+@media (max-width: 600px) {
+    #logo {
+      font-size: 22px;
+    }
+}
   
 
 .content-type{
