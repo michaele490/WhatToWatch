@@ -6,7 +6,7 @@ class Youtube < ApplicationRecord
   validates :minutes, presence: true
 
   def no_negative_values
-    if minutes < 0
+    if minutes <= 0
       errors.add(:base, "minutes cannot be negative")
     end
   end

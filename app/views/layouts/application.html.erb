@@ -26,17 +26,23 @@
       <!-- Logo -->
       <%= button_to 'What2Watch', root_path, method: :get, id: 'logo' %>
 
+
+      <!-- Toggler button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
       <!-- Navbar links -->
-      <div class="collapse navbar-collapse">
+      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <%= link_to 'Movies', movies_path, class: 'nav-link' %>
+            <%= link_to 'Movies', movies_path, class: "nav-link #{'active' if controller_name == 'movies'}" %>
           </li>
           <li class="nav-item">
-            <%= link_to 'TV Shows', tv_shows_path, class: 'nav-link' %>
+            <%= link_to 'TV Shows', tv_shows_path, class: "nav-link #{'active' if controller_name == 'tv_shows'}" %>
           </li>
           <li class="nav-item">
-            <%= link_to 'YouTube', youtubes_path, class: 'nav-link' %>
+            <%= link_to 'YouTube', youtubes_path, class: "nav-link #{'active' if controller_name == 'youtubes'}" %>
           </li>
           <% if user_signed_in? %>
           <% else %>
@@ -49,10 +55,10 @@
 
       <div class="navbar-nav ms-auto">
         <% if user_signed_in? %>
-          <b><%= current_user.username %></b>
-          <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: 'nav-link nav-btn' %>
+          <b class="username"><%= current_user.username %></b>
+          <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: 'nav-btn' %>
         <% else %>
-          <%= button_to "Sign Up", new_user_registration_path, method: :get, class: 'nav-link nav-btn' %>
+          <%= button_to "Sign Up", new_user_registration_path, method: :get, class: 'nav-btn' %>
         <% end %>
       </div>
     </nav>

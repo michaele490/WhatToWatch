@@ -25,7 +25,7 @@ h1{
 
 nav{
     background-color: #ECF184;
-    height: 100px;
+    min-height: 100px;
 }
 
 #logo{
@@ -40,6 +40,16 @@ nav{
     height: 75px;
     width: 185px;
     border-radius: 22px;
+    margin-right: 8px;
+}
+
+.nav-link:hover{
+    color: #FF5CE9;
+}
+
+.nav-link.active{
+    color: #FF5CE9 !important;
+    font-weight: bold !important;
 }
 
 .nav-btn{
@@ -53,7 +63,20 @@ nav{
     font-weight: bold;
     margin-right: 15px;
     margin-left: 15px;
+    border: none;
 }
+
+.nav-btn:hover{
+    background-color: RGBA(255, 92, 233, 0.75);
+    color: #00FFCC;
+}
+
+@media (max-width: 768px) {
+    .username {
+      display: none;
+    }
+  }
+  
 
 .content-type{
     display: block;
