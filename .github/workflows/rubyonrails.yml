@@ -61,6 +61,7 @@ jobs:
       - name: Run RSpec tests
         run: bundle exec rspec
   
+  # Just seeing if I have to start AWS lab for deployment job to pass
   deploy:
     runs-on: ubuntu-latest
     # needs: [ test, lint, rspec-test ]
