@@ -31,8 +31,9 @@ test:
 # Make sure to run the EC2 instance in production environment
 production:
   <<: *default
-  database: "/home/ubuntu/WhatToWatch/db/production.sqlite3"
+  # database: "/home/ubuntu/WhatToWatch/db/production.sqlite3"
   # database: path/to/persistent/storage/production.sqlite3
+  database: storage/production.sqlite3
 
 vm:
   <<: *default
