@@ -19,17 +19,24 @@ class User < ApplicationRecord
     minutes = total_minutes % 60
 
     if hours > 0 && minutes > 0
-      "#{hours} hrs #{minutes} mins"
+      "#{hours} hr#{'s' if hours > 1} #{minutes} min#{'s' if minutes > 1}"
     elsif hours > 0
-      "#{hours} hrs"
+      "#{hours} hr#{'s' if hours > 1}"
+    elsif minutes > 0
+      "#{minutes} min#{'s' if minutes > 1}"
     else
-      "#{minutes} mins"
+      "0 mins"
     end
   end
 
-  def average_minutes
+  def average_time
     if youtubes.count > 0
-      total_minutes / youtubes.count
+      avg = total_minutes / youtubes.count
+      if avg >= 60
+        "#{avg / 60} hr#{'s' if avg >= 120} #{avg % 60} min#{'s' if avg % 60 > 1}"
+      elsif avg < 60
+        "#{avg} min#{'s' if avg > 1}"
+      end
     else
       0
     end
